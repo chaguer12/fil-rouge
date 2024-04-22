@@ -27,7 +27,7 @@
                 <div class="mt-8">
                     <form action="update-profile-endpoint" method="post">
                         <label for="first-name" class="block text-lg font-semibold mb-2">first Name:</label>
-                        <input type="text" id="full-name" name="full-name" class="block w-full border-gray-300 focus:border-[#428C9E] focus:ring-[#428C9E] rounded-md shadow-sm mb-4" value="{{$user->Firstname}} ">
+                        <input type="text" id="full-name" name="first-name" class="block w-full border-gray-300 focus:border-[#428C9E] focus:ring-[#428C9E] rounded-md shadow-sm mb-4" value="{{$user->Firstname}} ">
                         <label for="last-name" class="block text-lg font-semibold mb-2">last Name:</label>
                         <input type="text" id="full-name" name="last-name" class="block w-full border-gray-300 focus:border-[#428C9E] focus:ring-[#428C9E] rounded-md shadow-sm mb-4" value="{{$user->Lastname}} ">
                         <label for="email" class="block text-lg font-semibold mb-2">Email:</label>

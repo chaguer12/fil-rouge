@@ -23,6 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/about', function () {
     return view('about');
 })->name("about");
@@ -33,5 +34,6 @@ Route::get('/login-form', [AuthController::class, 'LoginForm'])->name('login-for
 Route::post('/login', [AuthController::class, 'Login'])->name('login');
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 Route::get('/verify/{id}', [ConsultantController::class, 'verify'])->name('verify');
+Route::get('/profile', [ConsultantController::class, 'profile'])->name('profile');
 Route::resource('/Speciality', SpecialityController::class);
 Route::resource('/consultant', ConsultantController::class);

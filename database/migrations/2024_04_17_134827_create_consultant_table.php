@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('consultants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('speciality_id')->constrained();
             $table->string('disponibility')->default('available');
             $table->text('description');
-            $table->foreignId('speciality_id')->constrained();
             $table->timestamps();
 
         });

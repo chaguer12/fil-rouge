@@ -30,8 +30,8 @@
                 Inactive Link = hover:text-indigo-500 -->
                         <li class="md:px-4 md:py-2 text-white"><a href="/">Home</a></li>
                         <li class="md:px-4 md:py-2 text-white"><a href="/about">About</a></li>
-                        @if(Auth::user()->role == 'consultant' )
-                        <li class="md:px-4 md:py-2 text-white"><a href="#">Mon espace</a></li>
+                        @if(Auth::check() && Auth::user()->role == 'consultant')
+                        <li class="md:px-4 md:py-2 text-white"><a href="/profile">Mon espace</a></li>
                         @else
                         <li class="md:px-4 md:py-2 text-white"><a href="/explore">Explore</a></li>
                         @endif

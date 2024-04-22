@@ -72,4 +72,12 @@ class ConsultantController extends Controller
         return redirect()->route('consultant.index')->with('success', 'Consultant verified successfully');
 
     }
+
+
+    public function profile(){
+
+        $user = auth()->user();
+        return view('consultant.profile',['user'=> $user]);
+        
+    }
 }

@@ -13,8 +13,9 @@ class Speciality extends Model
         'speciality_name',
     ];
 
-    public function Consultant(){
-        return $this->hasMany(Speciality::class);
+    public function consultants()
+    {
+        return $this->hasMany(Consultant::class);
     }
 }
 

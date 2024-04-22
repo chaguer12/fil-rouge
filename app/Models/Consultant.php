@@ -25,7 +25,8 @@ class Consultant extends User
         return $this->belongsTo(Consultant::class);
     }
 
-    public function speciality() {
+    public function speciality()
+    {
         return $this->belongsTo(Speciality::class);
     }
 

@@ -53,6 +53,7 @@ class AuthController extends Controller
      */
     public function Login(LoginRequest $request)
     {
+        dd('here');
         $this->repository->Login($request);
     }
 

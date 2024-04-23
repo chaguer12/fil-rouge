@@ -52,7 +52,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             }   
 
         }else{
-            return back()->with('error','Invalid Email or password');
+            return abort(back()->with('error','Invalid Email or password'));
         }
 
     }

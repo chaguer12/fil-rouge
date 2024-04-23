@@ -45,6 +45,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    protected $with = ['Consultant','Admin','Client','SuperAdmin'];
+
     public function Consultant()
     {
         return $this->hasOne(Consultant::class);

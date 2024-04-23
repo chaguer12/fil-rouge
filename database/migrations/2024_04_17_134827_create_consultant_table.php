@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('speciality_id')->nullable()->constrained();
             $table->string('disponibility')->default('available');
             $table->text('description')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
 
         });

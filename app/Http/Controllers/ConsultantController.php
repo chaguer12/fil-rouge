@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Models\Consultant;
 use App\Models\User;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 
 class ConsultantController extends Controller
 {
+    private $imageService;
+
+    public function __construct(ImageService $imageService)
+    {
+
+        $this->imageService = $imageService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -52,9 +61,23 @@ class ConsultantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProfileRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->update([
+            'Firstnale' => $request->input('firstname'),
+            'Lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+
+        ])->save(); 
+        $consultant = Consultant::where('user_id',$id)->update([
+            'description' => $request->input('description'),
+        ])->save();
+        // if ($request->hasFile('image')) {
+        //     $this->imageService->store($request->file('image'), $user);
+        // }
+        return redirect()->back()->with('success', 'Consultant updated successfully');
+        
     }
 
     /**

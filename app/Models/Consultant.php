@@ -19,7 +19,7 @@ class Consultant extends User
         'description',
         'image'
 ];
-    public function User(){
+    public function user(){
         return $this->belongsTo(User::class);
 
     }

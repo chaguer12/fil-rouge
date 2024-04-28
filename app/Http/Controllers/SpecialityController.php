@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Consultant;
 use App\Models\Speciality;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,8 +16,14 @@ class SpecialityController extends Controller
     public function index()
     {
         $specialities = Speciality::all();
+        $totalConsultants = Consultant::count();
+        $verifiedConsultants = User::where('status','verified')->where('role','consultant')->count();
+        $unverifiedConsultants = User::where('status','unverified')->where('role','consultant')->count();
         return view('admin.dashboard',[
             'specialities' => $specialities,
+            'total'=> $totalConsultants,
+            'verified' => $verifiedConsultants,
+            'unverified' => $unverifiedConsultants
             
         ]);
     }
@@ -87,7 +95,7 @@ class SpecialityController extends Controller
                 
                 // ]);
                 
-        dd($request->all());
+       
         $validatedData = $request->validate([
             'speciality' => 'required|string|max:255',
             // Add validation rules for other fields as needed

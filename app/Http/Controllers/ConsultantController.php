@@ -26,8 +26,10 @@ class ConsultantController extends Controller
     {
         $consultants = User::where('role','consultant')->where('status','unverified')->get();
         $specialities = Speciality::all();
-        
-        return view('admin.consultants',['consultants' => $consultants,'specilities' => $specialities]);
+        $totalConsultants = Consultant::count();
+        $verifiedConsultants = User::where('status','verified')->where('role','consultant')->count();
+        $unverifiedConsultants = User::where('status','unverified')->where('role','consultant')->count();
+        return view('admin.consultants',['consultants' => $consultants,'specilities' => $specialities,'total' => $totalConsultants,'verified' => $verifiedConsultants,'unverified' => $unverifiedConsultants]);
     }
 
     /**

@@ -46,7 +46,7 @@ class User extends Authenticatable
     ];
 
 
-    public function Consultant()
+    public function consultant()
     {
         return $this->hasOne(Consultant::class);
     }

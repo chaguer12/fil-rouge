@@ -30,7 +30,7 @@
         <!-- Profile picture -->
           
         <div class="w-32 h-32">
-            <img src="../../../pulic/storage/images{{$user->consultant->image->path}}" alt="" class="rounded-full h-16  mx-auto md:mx-0">
+            <img src="../../../pulic/storage/images/" alt="" class="rounded-full h-16  mx-auto md:mx-0">
         </div>
         <!-- Image upload form -->
         <div>
@@ -88,7 +88,7 @@
         <!-- Profile picture -->
           
         <div class="w-32 h-32">
-            <img src="../../../pulic/storage/images{{$user->consultant->image->path}}" alt="" class="rounded-full h-16  mx-auto md:mx-0">
+            <img src="../../../pulic/storage/images" alt="" class="rounded-full h-16  mx-auto md:mx-0">
         </div>
         <!-- Image upload form -->
         <div>

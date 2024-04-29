@@ -18,8 +18,8 @@ class PostController extends Controller
     {
         // $posts = Post::all();
 
-        $posts = Post::where('status',0)->get();
-        return view('admin.posts',['posts' => $posts]);
+        $posts = json_encode( Post::where('status', 0)->get());
+        return view('admin.posts', ['posts' => $posts]);
     }
 
     /**
@@ -38,17 +38,16 @@ class PostController extends Controller
         $user = Auth::user();
         $validatedData = $request->validated();
         $consultant_id = $user->consultant->id;
-        if(Auth::user() && $user->verified == 'verified'){
+        if (Auth::user() && $user->verified == 'verified') {
             $post = Post::create([
                 'title' => $validatedData['title'],
                 'text' => $validatedData['text'],
                 'const_id' => $consultant_id
             ]);
             return redirect()->back()->with('success', 'Post created successfully');
-        }else{
+        } else {
             return redirect()->back()->with('error', 'Please verify your account first');
         }
-        
     }
 
     /**

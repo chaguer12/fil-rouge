@@ -7,6 +7,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\isNull;
+
 class PostController extends Controller
 {
     /**
@@ -14,8 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        // $posts = Post::all();
+
         $posts = Post::where('status',0)->get();
-        if()
         return view('admin.posts',['posts' => $posts]);
     }
 

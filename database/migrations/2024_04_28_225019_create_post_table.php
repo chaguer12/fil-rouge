@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('text');
             $table->foreignId('const_id')->constrained('consultants')->onDelete('cascade');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

@@ -5,7 +5,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogOutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ConsultantController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SpecialityController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { 
     return view('welcome');
+});
+
+Route::get('/blog', function () {
+    $posts = Post::where('status', 1)->orderBy('id', 'desc')->get();
+    return view('client.posts',['posts' => $posts]);
 });
 
 
@@ -39,5 +46,5 @@ Route::patch('/image/{id}', [ConsultantController::class, 'image'])->name('image
 Route::get('/profile', [ConsultantController::class, 'profile'])->name('profile');
 Route::resource('/Speciality', SpecialityController::class);
 Route::resource('/consultant', ConsultantController::class);
-
+Route::resource('/post',PostController::class);
 Route::get('/testing',[AuthController::class,'testing'])->name("testing");

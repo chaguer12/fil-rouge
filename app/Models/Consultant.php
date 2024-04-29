@@ -34,4 +34,8 @@ class Consultant extends User
     public function image(){
         return $this->morphOne(Image::class, 'imageable');
     }
+    
+    public function post(){
+        return $this->hasMany(Post::class);
+    }
 }

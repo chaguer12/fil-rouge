@@ -1,3 +1,8 @@
+@include('../includes.head')
+<body class="bg-[#f3f4f6]">
+    
+
+
 <nav class="bg-[#428C9E] shadow shadow-gray-300 w-100 px-8 md:px-auto">
     <div class="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
         <!-- Logo -->
@@ -11,25 +16,20 @@
             <ul class="flex font-semibold justify-between">
                 <!-- Active Link = text-indigo-500
     Inactive Link = hover:text-indigo-500 -->
-                <li class="md:px-4 md:py-2 text-white"><a href="/">Home</a></li>
-                <li class="md:px-4 md:py-2 text-white"><a href="/about">About</a></li>
-                @if(Auth::check() && Auth::user()->role == 'consultant')
-                <li class="md:px-4 md:py-2 text-white"><a href="/profile">Mon espace</a></li>
-                @else
-                <li class="md:px-4 md:py-2 text-white"><a href="/explore">Explore</a></li>
-                @endif
-                <li class="md:px-4 md:py-2 text-white"><a href="/blog">Blog</a></li>
+                <li class="md:px-4 md:py-2 text-white"><a href="{{route('Speciality.index')}}">Specialities</a></li>
+                <li class="md:px-4 md:py-2 text-white"><a href="{{route('post.index')}}">Posts</a></li>
+                <li class="md:px-4 md:py-2 text-white"><a href="{{route('consultant.index')}}">Consultants</a></li>
+                
                
             </ul>
         </div>
         @if(Auth::check()) <!-- Check if the user is authenticated -->
 <div class="order-2 md:order-3">
 <!-- Add your logout button -->
-<form id="logout-form" method="post" action="{{ route('logout') }}" class=" px-4 py-2 bg-white hover:shadow-lg rounded-xl">
+<form id="logout-form" method="post" action="{{ route('logout') }}" class="px-4 py-2 bg-white hover:shadow-lg rounded-xl">
 @csrf
 <!-- CSRF protection -->
 <button type="submit" class="text-[#428C9E]">Logout</button>
-
 </form>
 </div>
 @else
@@ -46,3 +46,5 @@
 
     </div>
 </nav>
+</body>
+</html>

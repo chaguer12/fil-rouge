@@ -15,7 +15,7 @@
                 <!-- Active Link = text-indigo-500
     Inactive Link = hover:text-indigo-500 -->
                 <li class="md:px-4 md:py-2 text-white"><a href="{{route('Speciality.index')}}">Specialities</a></li>
-                <li class="md:px-4 md:py-2 text-white"><a href="/about">Posts</a></li>
+                <li class="md:px-4 md:py-2 text-white"><a href="{{route('post.index')}}">Posts</a></li>
                 <li class="md:px-4 md:py-2 text-white"><a href="{{route('consultant.index')}}">Consultants</a></li>
                 
                

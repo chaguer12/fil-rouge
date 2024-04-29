@@ -16,5 +16,11 @@ class Post extends Model
 
     ];
 
-    
+    protected $table = ['post'];
+
+
+    public function consultant(){
+        return $this->belongsTo(Consultant::class);
+    }
+
 }
